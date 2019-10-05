@@ -1,0 +1,7 @@
+{
+  "name": "Fora-front",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
