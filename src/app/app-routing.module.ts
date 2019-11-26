@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { TutorialGuard } from './guards/tutorial.guard';
+
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule' }
+  },
+  { 
+    path: 'login', 
+    loadChildren: './login/login.module#LoginPageModule'
+
+  },
+  { 
+    path: '', 
+    loadChildren: './registro/registro.module#RegistroPageModule' ,
+    canActivate: [TutorialGuard] 
+  },
+  { 
+    path: 'tutorial', 
+    loadChildren: './tutorial/tutorial.module#TutorialPageModule'
+   }
+
 
 ];
 
@@ -26,3 +33,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+

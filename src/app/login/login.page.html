@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row  justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h2 style="color: #b9b9b9;">Entra en tu cuenta ahora</h2>
+            <img width="77px" src="../../assets/icon-logo.png" alt="">
+          </div>
+          
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="tuEmail@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="contraseña" type="password" placeholder="Contraseña" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <button style="    background-color: #9c689c; width: 100%; height: 44px; border-radius: 10px; font-size: large;color: whitesmoke;" size="large" type="submit" [disabled]="form.invalid" expand="block">Entrar</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
