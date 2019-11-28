@@ -6,21 +6,33 @@ import { TutorialGuard } from './guards/tutorial.guard';
 const routes: Routes = [
   {
     path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
   },
   { 
     path: 'login', 
-    loadChildren: './login/login.module#LoginPageModule'
+    loadChildren: './pages/login/login.module#LoginPageModule'
 
   },
   { 
     path: '', 
-    loadChildren: './registro/registro.module#RegistroPageModule' ,
+    loadChildren: './pages/registro/registro.module#RegistroPageModule' ,
     canActivate: [TutorialGuard] 
   },
   { 
     path: 'tutorial', 
-    loadChildren: './tutorial/tutorial.module#TutorialPageModule'
+    loadChildren: './pages/tutorial/tutorial.module#TutorialPageModule'
+   },
+   { 
+    path: 'mis-datos', 
+    loadChildren: './pages/mis-datos/mis-datos.module#MisDatosPageModule'
+   },
+   { 
+    path: 'registro', 
+    loadChildren: './pages/registro/registro.module#RegistroPageModule'
+   },
+   { 
+    path: 'acerca-de', 
+    loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule'
    }
 
 

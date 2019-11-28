@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/">
+
+			</ion-back-button>
+		</ion-buttons>
+		
+		<ion-title>
+			Mis datos
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+	<div style="text-align: center; ">
+		<img  style="margin-bottom: 20px; border-radius: 50%; width: 35%; padding: .25rem; background-color: #fff; border: 3px solid #398ada; max-width: 100%; height: auto;" src="{{_userService.getIdentity().image}}">
+	</div>
+
+	<ion-list>
+
+		<ion-item>
+			<ion-label>Nombres</ion-label>
+			<ion-label for="">{{_userService.getIdentity().name}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Apellidos</ion-label>
+			<ion-label for="">{{_userService.getIdentity().surname}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Telefono</ion-label>
+			<ion-label for="">311-116-05-60</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Email</ion-label>
+			<ion-label for="">{{_userService.getIdentity().email}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Contraseña</ion-label>
+		<ion-label for="">{{_userService.getIdentity().password}}</ion-label>
+		
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Sector</ion-label>
+			<ion-label for="">{{_userService.getIdentity().sector}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Municipio</ion-label>
+			<ion-label for="">{{_userService.getIdentity().municipio}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label for="">Localidad</ion-label>
+			<ion-label for="">{{_userService.getIdentity().localidad}}</ion-label>
+		</ion-item>
+	</ion-list>
+
+	<!-- fab placed to the bottom start -->
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button (click)="pageUpdate()">
+			<ion-icon name="create"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+
+
+
+
+
+
+
+
+</ion-content>

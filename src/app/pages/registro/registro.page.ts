@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { User } from '../models/usuario';//IMPORTAMOS NUESTRO MODELO DE USUARIO
-import { GLOBAL } from '../services/global.service';
-import { UsuarioService } from '../services/usuario.service';
+import { User } from '../../models/usuario';//IMPORTAMOS NUESTRO MODELO DE USUARIO
+import { GLOBAL } from '../../services/global.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { ToastController } from '@ionic/angular';
 
 //Interface para especificar el modelo necesario para llenar los combobox.

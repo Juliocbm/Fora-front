@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/">
+
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Crea tu cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content text-center padding>
+
+  <form  #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10" class="panel-login">
+    <img src="../../assets/icon-logo.png" alt="" style="margin-top: 20px; width:200px;">
+    <hr>
+
+
+    <div class="alert alert-danger" *ngIf="status == 'Error'">No te has registrado correctamente</div>
+
+
+
+    <div class="row">
+      <div class="col-12">
+        <p align="left" style="margin-bottom: 20px;">
+          <ion-input style="width: 100%; min-width:260px;" placeholder="Ingresa tu nombre" type="text" name="name"
+            #name="ngModel" [(ngModel)]="user.name" class="form-control" required ></ion-input>
+          <span *ngIf="!name.valid && name.touched" style="color:#3880ff">El nombre es obligatorio</span>
+        </p>
+        <p align="left" style="margin-bottom: 20px;">
+          <ion-input style="width: 100%; min-width:260px;" placeholder="Ingresa tu apellido" type="text" name="surname"
+            #surname="ngModel" [(ngModel)]="user.surname" class="form-control" required ></ion-input>
+          <span *ngIf="!surname.valid && surname.touched" style="color:#3880ff">Los apellidos son obligatorio</span>
+        </p>
+
+        <p align="left" style="margin-bottom: 20px;">
+          <ion-input  style="width: 100%; min-width:260px;" placeholder="ejemplo@email.com" type="email" name="email"
+            #email="ngModel" [(ngModel)]="user.email" class="form-control" required></ion-input>
+          <span *ngIf="!email.valid && email.touched" style="color:#3880ff">El email es obligatorio</span>
+
+        </p>
+
+
+        <p align="left" style="margin-bottom: 20px;">
+          <ion-input style="width: 100%; min-width:260px;" placeholder="contraseña" type="password" name="password"
+            #password="ngModel" [(ngModel)]="user.password" class="form-control" required></ion-input>
+          <span *ngIf="!password.valid && password.touched" style="color:#3880ff">El password es obligatoria</span>
+        </p>
+       
+      </div>
+    </div>
+
+
+    <div class="example-button-row">
+      <button
+        style="    margin-bottom: 20px; background-color: rgba(68, 127, 177, 0.75); padding: 10px 35px 10px 35px; border-radius: 10px; color: aliceblue;"
+        type="submit" value="Entrar" mat-raised-button color="accent"
+        [disabled]="!registerForm.form.valid">Registrar</button>
+
+    </div>
+
+  </form>
+
+  <div [routerDirection]="'root'" [routerLink]="['/login']">
+      <ion-icon slot="start" [name]="log-in"></ion-icon>
+      <a href="">Ya tengo una cuenta</a>
+  </div>
+
+
+  <!-- <div class="alert alert-success" *ngIf="status == 'success'">
+        Registro completado correctamente,<a [routerLink]="['/login']">identificate aquí</a>
+  </div> -->
+
+</ion-content>
