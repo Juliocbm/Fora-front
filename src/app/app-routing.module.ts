@@ -33,7 +33,9 @@ const routes: Routes = [
    { 
     path: 'acerca-de', 
     loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule'
-   }
+   },
+  { path: 'viajes', loadChildren: './pages/viajes/viajes.module#ViajesPageModule' }
+
 
 
 ];
