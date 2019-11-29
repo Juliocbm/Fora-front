@@ -5,9 +5,12 @@ export class Viaje{
 		public origen:string, 
 		public destino:string,
 		public horaSalida:string,
-		public status:boolean
+        public status:boolean,
+		public choferId:string,
+		public direccionO:string
 		){
 
 	}//Constructor
 
 }//Viaje
+

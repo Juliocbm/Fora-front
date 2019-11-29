@@ -48,6 +48,39 @@
           </div>
           
         </div>
+
+        <div align="left" class="row">
+            <div class="col-8">
+              <p>
+                <label>Calle:&nbsp;</label>
+                <input type="text" name="calle" #calle="ngModel" [(ngModel)]="direccionOrigen.calle" class="form-control" required>
+                <span *ngIf="!calle.valid && calle.touched">La calle es obligatoria</span>
+              </p>
+            </div>
+            
+          </div>
+
+          <div align="left" class="row">
+              <div class="col-8">
+                <p>
+                  <label>Numero:&nbsp;</label>
+                  <input type="number" name="numero" #numero="ngModel" [(ngModel)]="direccionOrigen.numero" class="form-control" required>
+                  <span *ngIf="!numero.valid && numero.touched">El numero es obligatorio</span>
+                </p>
+              </div>
+              
+            </div>
+
+            <div align="left" class="row">
+                <div class="col-8">
+                  <p>
+                    <label>Colonia:&nbsp;</label>
+                    <input type="text" name="colonia" #colonia="ngModel" [(ngModel)]="direccionOrigen.colonia" class="form-control" required>
+                    <span *ngIf="!colonia.valid && colonia.touched">El destino es obligatorio</span>
+                  </p>
+                </div>
+                
+              </div>
   
   
   
@@ -57,5 +90,19 @@
       
   
       </form>
+    </div>
+
+    <div>
+
+      
+        <ion-list>
+            <ion-item *ngFor="let viaje of viajes">
+                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+                    <h3 id="origen">Origen: {{viaje.origen}}</h3>
+              <h3 id="destino">Destino: {{viaje.destino}}</h3>
+                  </ion-label>
+              
+            </ion-item>        
+          </ion-list>
     </div>
   </div>

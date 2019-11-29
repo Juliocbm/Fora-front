@@ -72,7 +72,7 @@ export class LoginPage{
 								var name=this.identity.name.toUpperCase();
 								this.presentToast('Bienvenido '+name);
 								login_form.reset();
-								this._router.navigate(['/']);
+								this._router.navigate(['/viajes']);
 								
 							}
 						},
