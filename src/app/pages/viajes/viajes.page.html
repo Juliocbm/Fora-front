@@ -12,14 +12,14 @@
   
       <!--MENSAJES DE EXITO O ERROR, Y DA LA OPCIÓN PARA CERRARLO-->
       <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="status == 'success'">
-        La noticia ha sido publicada.
+        El viaje ha sido publicado con exito.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
   
       <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="status == 'error'">
-        La noticia no pudo ser publicada.
+        El viaje no pudo ser publicado.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -28,32 +28,9 @@
       <form #addViajeForm="ngForm" (ngSubmit)="onSubmit(addViajeForm)" class="col-lg-12">
   
         <div align="left" class="row">
-          <div class="col-8">
-            <p>
-              <label>Origen:&nbsp;</label>
-              <input type="text" name="origen" #origen="ngModel" [(ngModel)]="viajeNuevo.origen" class="form-control" required>
-              <span *ngIf="!origen.valid && origen.touched">El origen es obligatorio</span>
-            </p>
-          </div>
-          
-        </div>
-
-        <div align="left" class="row">
-          <div class="col-8">
-            <p>
-              <label>Destino:&nbsp;</label>
-              <input type="text" name="destino" #destino="ngModel" [(ngModel)]="viajeNuevo.destino" class="form-control" required>
-              <span *ngIf="!destino.valid && destino.touched">El destino es obligatorio</span>
-            </p>
-          </div>
-          
-        </div>
-
-        <div align="left" class="row">
             <div class="col-8">
-              <p>
-                <label>Calle:&nbsp;</label>
-                <input type="text" name="calle" #calle="ngModel" [(ngModel)]="direccionOrigen.calle" class="form-control" required>
+              <p>               
+                <ion-input placeholder="Ingresa la calle" name="calle"  #calle="ngModel" [(ngModel)]="viajeNuevo.calle" clearInput required></ion-input>
                 <span *ngIf="!calle.valid && calle.touched">La calle es obligatoria</span>
               </p>
             </div>
@@ -63,8 +40,7 @@
           <div align="left" class="row">
               <div class="col-8">
                 <p>
-                  <label>Numero:&nbsp;</label>
-                  <input type="number" name="numero" #numero="ngModel" [(ngModel)]="direccionOrigen.numero" class="form-control" required>
+                  <ion-input type="number" placeholder="Ingresa el numero de casa" name="numero"  #numero="ngModel" [(ngModel)]="viajeNuevo.numero" clearInput required></ion-input>
                   <span *ngIf="!numero.valid && numero.touched">El numero es obligatorio</span>
                 </p>
               </div>
@@ -74,16 +50,15 @@
             <div align="left" class="row">
                 <div class="col-8">
                   <p>
-                    <label>Colonia:&nbsp;</label>
-                    <input type="text" name="colonia" #colonia="ngModel" [(ngModel)]="direccionOrigen.colonia" class="form-control" required>
+                    <ion-input placeholder="Ingresa la colonia" name="colonia"  #colonia="ngModel" [(ngModel)]="viajeNuevo.colonia" clearInput required></ion-input>
                     <span *ngIf="!colonia.valid && colonia.touched">El destino es obligatorio</span>
                   </p>
                 </div>
                 
               </div>
   
-  
-  
+
+
         
   
         <input  style="background-color: #28a745; text-transform: uppercase; font-size: 14px; font-weight: 600; border-color: #28a745; width: -webkit-fill-available; text-align: center; border-radius: 5px; padding: 11px !important;" type="submit" value="Publicar viaje" class="btn btn-success" [disabled]="!addViajeForm.form.valid" />
@@ -98,8 +73,16 @@
         <ion-list>
             <ion-item *ngFor="let viaje of viajes">
                 <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
-                    <h3 id="origen">Origen: {{viaje.origen}}</h3>
-              <h3 id="destino">Destino: {{viaje.destino}}</h3>
+                    <h1>Status</h1>
+                    <h4>{{viaje.status}}</h4>
+                    <h1>Origen</h1>
+                    <h4 id="">Calle: {{viaje.direccionO.calle}}</h4>
+                    <h4 id="">Numero: {{viaje.direccionO.numero}}</h4>
+                    <h4 id="">Colonia: {{viaje.direccionO.colonia}}</h4>
+                    <h1>Chofer</h1>
+                    <h4>Nombre: {{viaje.choferId.name}}</h4>
+                    <h4>Apellido: {{viaje.choferId.surname}}</h4>
+                    
                   </ion-label>
               
             </ion-item>        

@@ -33,16 +33,16 @@ export class ViajesPage implements OnInit {
 
   constructor(private _viajeService:ViajeService,private _userService:UsuarioService) { 
 	
-		 this.viajeNuevo = new Viaje('','','','',true,'','');
     this.token = this._userService.getToken();
     this.viajes= [];
-    this.direccionOrigen=new Direccion('',0,'','');
+    
 		
 	}
 	
   ngOnInit() {
-     this.viajeNuevo = new Viaje('','','','',true,'','');
+    this.viajeNuevo = new Viaje('','',true,'','','');
      this.getViajes();
+     this.direccionOrigen=new Direccion('','',0,'');
   }
   
   
@@ -61,8 +61,6 @@ export class ViajesPage implements OnInit {
 
 
          }
-         console.log(this.viajes);
-         
         }
       },
       error => {
@@ -75,7 +73,8 @@ export class ViajesPage implements OnInit {
   onSubmit(Form){
 
 		moment.locale('es');
-		moment().format('LLLL');
+    moment().format('LLLL');
+    
 		this.viajeNuevo.horaSalida=moment().format('DD MMMM YYYY h:mm:ss a');
     
     this._viajeService.createDireccion(this.token,this.direccionOrigen).subscribe(
@@ -83,7 +82,26 @@ export class ViajesPage implements OnInit {
         if(response.direccion && response.direccion._id){
           this.status = 'success';
           
-      
+          this.viajeNuevo.direccionO=response.direccion._id;
+
+          this._viajeService.createViaje(this.token,this.viajeNuevo).subscribe(
+            response => {
+              if(response.viaje && response.viaje._id){
+                this.status = 'success';
+                this.viajeNuevo = new Viaje('','',true,'','',''); //REINCIAR EL VIAJEUNA VEZ QUE SE REGISTRE
+                this.direccionOrigen = new Direccion('','',123,''); //REINCIAR la direccion una VEZ QUE SE REGISTRE
+               // Form.reset();//ESTO ES PARA REINICAR EL FORMULARIO Y NO SALGAN LOS AVISOS DE LAS VALIDACIONES DEL CAMPO
+                
+            
+              }else{
+                this.status = 'error';
+              }
+            },
+            error => {
+              console.log(<any>error);
+            }
+          );
+          
         }else{
           this.status = 'error';
         }
@@ -93,24 +111,8 @@ export class ViajesPage implements OnInit {
       }
     );
 	
-		this.viajeNuevo.direccionO=this.direccionOrigen._id;
-    this._viajeService.createViaje(this.token,this.viajeNuevo).subscribe(
-        response => {
-          if(response.viaje && response.viaje._id){
-            this.status = 'success';
-            this.viajeNuevo = new Viaje('','','','',true,'',''); //REINCIAR EL VIAJEUNA VEZ QUE SE REGISTRE
-            this.direccionOrigen = new Direccion('',0,'',''); //REINCIAR la direccion una VEZ QUE SE REGISTRE
-           // Form.reset();//ESTO ES PARA REINICAR EL FORMULARIO Y NO SALGAN LOS AVISOS DE LAS VALIDACIONES DEL CAMPO
-						
-        
-          }else{
-            this.status = 'error';
-          }
-        },
-        error => {
-          console.log(<any>error);
-        }
-      );
+		
+    
 
 		
   }//onSubmit

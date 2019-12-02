@@ -41,8 +41,8 @@ export class AppComponent implements OnInit, DoCheck {
       icon: 'contact'
     },
 		{
-      title: 'Mis productos',
-      url: '/mis-productos',
+      title: 'Viajes',
+      url: '/viajes',
       icon: 'cube'
    }
 
