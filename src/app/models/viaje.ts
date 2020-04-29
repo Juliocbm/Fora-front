@@ -2,7 +2,7 @@ export class Viaje{
 	
 	constructor(
 		public _id:string,
-		public horaSalida:string,
+		public horaSalida:Date,
         public status:boolean,
 		public choferId:string,
 		public direccionO:string,

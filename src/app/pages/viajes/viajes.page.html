@@ -30,7 +30,7 @@
         <div align="left" class="row">
             <div class="col-8">
               <p>               
-                <ion-input placeholder="Ingresa la calle" name="calle"  #calle="ngModel" [(ngModel)]="viajeNuevo.calle" clearInput required></ion-input>
+                <ion-input placeholder="Ingresa la calle" name="calle"  #calle="ngModel" [(ngModel)]="direccionOrigen.calle" clearInput required></ion-input>
                 <span *ngIf="!calle.valid && calle.touched">La calle es obligatoria</span>
               </p>
             </div>
@@ -40,7 +40,7 @@
           <div align="left" class="row">
               <div class="col-8">
                 <p>
-                  <ion-input type="number" placeholder="Ingresa el numero de casa" name="numero"  #numero="ngModel" [(ngModel)]="viajeNuevo.numero" clearInput required></ion-input>
+                  <ion-input type="number" placeholder="Ingresa el numero de casa" name="numero"  #numero="ngModel" [(ngModel)]="direccionOrigen.numero" clearInput required></ion-input>
                   <span *ngIf="!numero.valid && numero.touched">El numero es obligatorio</span>
                 </p>
               </div>
@@ -50,12 +50,42 @@
             <div align="left" class="row">
                 <div class="col-8">
                   <p>
-                    <ion-input placeholder="Ingresa la colonia" name="colonia"  #colonia="ngModel" [(ngModel)]="viajeNuevo.colonia" clearInput required></ion-input>
+                    <ion-input placeholder="Ingresa la colonia" name="colonia"  #colonia="ngModel" [(ngModel)]="direccionOrigen.colonia" clearInput required></ion-input>
                     <span *ngIf="!colonia.valid && colonia.touched">El destino es obligatorio</span>
                   </p>
                 </div>
                 
               </div>
+
+              <div align="left" class="row">
+                <div class="col-8">
+                  <p>               
+                    <ion-input placeholder="Ingresa la calle" name="calle2"  #calle2="ngModel" [(ngModel)]="direccionDestino.calle" clearInput required></ion-input>
+                    <span *ngIf="!calle.valid && calle.touched">La calle es obligatoria</span>
+                  </p>
+                </div>
+                
+              </div>
+    
+              <div align="left" class="row">
+                  <div class="col-8">
+                    <p>
+                      <ion-input type="number" placeholder="Ingresa el numero de casa" name="numero2"  #numero2="ngModel" [(ngModel)]="direccionDestino.numero" clearInput required></ion-input>
+                      <span *ngIf="!numero.valid && numero.touched">El numero es obligatorio</span>
+                    </p>
+                  </div>
+                  
+                </div>
+    
+                <div align="left" class="row">
+                    <div class="col-8">
+                      <p>
+                        <ion-input placeholder="Ingresa la colonia" name="colonia2"  #colonia2="ngModel" [(ngModel)]="direccionDestino.colonia" clearInput required></ion-input>
+                        <span *ngIf="!colonia.valid && colonia.touched">El destino es obligatorio</span>
+                      </p>
+                    </div>
+                    
+                  </div>
   
 
 
