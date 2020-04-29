@@ -1,7 +1,6 @@
 
-<div class="row">
 
-  <h1 align="left" style="font-family: sans-serif;
+  <!-- <h1 align="left" style="font-family: sans-serif;
       font-size: xx-large;
       color: #929292;
       text-align: -webkit-left;
@@ -10,7 +9,7 @@
     <div class="col-lg-12">
   
   
-      <!--MENSAJES DE EXITO O ERROR, Y DA LA OPCIÓN PARA CERRARLO-->
+     MENSAJES DE EXITO O ERROR, Y DA LA OPCIÓN PARA CERRARLO
       <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="status == 'success'">
         El viaje ha sido publicado con exito.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -95,12 +94,15 @@
       
   
       </form>
-    </div>
+    </div> -->
 
-    <div>
 
+      <div id="map" (click)="centrar()" style="width:100%; height:100%;">
       
-        <ion-list>
+      </div>
+      <ion-button (click)="getPositions()" >ir a ubicacion</ion-button>
+      <ion-button (click)="getloc()" >get loc</ion-button>
+        <!-- <ion-list>
             <ion-item *ngFor="let viaje of viajes">
                 <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
                     <h1>Status</h1>
@@ -116,6 +118,6 @@
                   </ion-label>
               
             </ion-item>        
-          </ion-list>
-    </div>
-  </div>
+          </ion-list> -->
+   
+  
